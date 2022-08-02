@@ -41,14 +41,15 @@ def to_input( pathfile, to='(-3,0,0)', width=8, height=8, name="temp" ):
 """
 
 # Conv
-def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" " ):
+def to_Conv( name , width=1, height=40, depth=40, x_filer=64, y_filer=128, z_filer = 256, offset="(0,0,0)", to="(0,0,0)", caption=" " ):
     return r"""
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
         caption="""+ caption +r""",
-        xlabel={{"""+ str(n_filer) +""", }},
-        zlabel="""+ str(s_filer) +""",
+        xlabel={{"""+ str(x_filer) +""", }},
+        zlabel="""+ str(z_filer) +""",
+        ylabel="""+str(y_filer)+""",
         fill=\ConvColor,
         height="""+ str(height) +""",
         width="""+ str(width) +""",
